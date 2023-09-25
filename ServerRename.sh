@@ -17,10 +17,11 @@ if [ "$nuevo_nombre" != "$nombre_actual" ]; then
     # Cambiar el nombre en el archivo /etc/hosts
     sudo sed -i "s/$nombre_actual/$nuevo_nombre/g" /etc/hosts
 
+    echo "El nombre del servidor se cambiará a $nuevo_nombre después del reinicio."
+    
+    read -p "Presione Enter para reiniciar."
     # Reiniciar el servidor
     sudo reboot
-
-    echo "El nombre del servidor se cambiará a $nuevo_nombre después del reinicio."
 else
     echo "El nuevo nombre es igual al nombre actual ($nombre_actual). No se realizará ningún cambio."
 fi
